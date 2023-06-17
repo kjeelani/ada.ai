@@ -1,0 +1,41 @@
+{
+    "routes": {
+        "/posts": {
+            "GET": {
+                "description": "Get All Posts",
+                "query_strings": {
+                    "page": {
+                        "description": "The page you want",
+                        "type": "integer"
+                    },
+                    "page_size": {
+                        "description": "The size of each page",
+                        "type": "integer"
+                    }
+                },
+                "path_parameters": {},
+                "request_body": "",
+                "response_body": ""
+            },
+            "POST": {
+                "description": "Create A New Post",
+                "query_strings": {},
+                "path_parameters": {},
+                "request_body": "",
+                "response_body": ""
+            }
+        },
+        "/posts/:id": {
+            "GET": {
+                "description": "Get A Post By Id",
+                "query_strings": {},
+                "path_parameters": {
+                    "id": {
+                        "description": "Post ID",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

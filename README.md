@@ -21,6 +21,10 @@ API Documentation Assistant
 
 `GET /health`
 
+<details>
+
+<summary>Health check for the API (just another route)</summary>
+
 ##### Response
 
 ```json
@@ -29,9 +33,17 @@ API Documentation Assistant
 }
 ```
 
+</details>
+
+<hr>
+
 #### Get All Posts
 
 `GET /posts`
+
+<details>
+
+<summary>Query all pools (LIMIT 20)</summary>
 
 ##### Query Strings
 
@@ -47,9 +59,15 @@ API Documentation Assistant
 ]
 ```
 
+</details>
+
 #### Create A New Post
 
 `POST /posts`
+
+<details>
+
+<summary>Insert a new pool into memory</summary>
 
 ##### Request Body
 
@@ -65,6 +83,8 @@ API Documentation Assistant
 ##### Response Body
 
 A `Post` object
+
+</details>
 
 <hr>
 

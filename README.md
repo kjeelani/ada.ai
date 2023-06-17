@@ -47,16 +47,23 @@ API Documentation Assistant
 
 ##### Query Strings
 
-| Field | Type | Description | Required |
+| Field | Type | Description | Restrictions |
 | :---: | :--: | :---------- | :------: |
-| `page` | `int` | The page you want | False |
+| `page` | `int` | The page you want | `Required` |
+| `page_size` | `int` | The size of each page | `5 <= page_size <= 35`, `Required` |
 
 ##### Response
 
 ```json
-[
-    <list of post objects>
-]
+{
+    "metadata": {
+        "page": 0,
+        "page_size": 20
+    },
+    "posts": [
+        <list of post objects>
+    ]
+}
 ```
 
 </details>

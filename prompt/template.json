@@ -15,7 +15,7 @@
                 },
                 "path_parameters": {},
                 "request_body": "",
-                "response_body": ""
+                "response_body": "{\"id\":\"e52aff2f-773b-48aa-ae58-4e3d8ae81201\",\"ctime\":\"2023-06-17T17:58:47+0000\"}"
             },
             "POST": {
                 "description": "Create A New Post",

@@ -1,0 +1,64 @@
+{
+    "routes": {
+        "/health": {
+            "GET": {
+                "description": "Check Health",
+                "query_strings": {},
+                "path_parameters": {},
+                "request_body": "",
+                "response_body": "{\"status\":\"healthy\"}"
+            }
+        },
+        "/posts": {
+            "GET": {
+                "description": "Get All Posts With Pagination",
+                "query_strings": {
+                    "page": {
+                        "description": "The page you want",
+                        "type": "integer"
+                    },
+                    "page_size": {
+                        "description": "The size of each page",
+                        "type": "integer"
+                    }
+                },
+                "path_parameters": {},
+                "request_body": "",
+                "response_body": "{\"metadata\":{\"page\":\"0\",\"page_size\":\"10\"},\"posts\":[{\"id\":\"e52aff2f-773b-48aa-ae58-4e3d8ae81201\",\"ctime\":\"2023-06-17T17:58:47+0000\",\"title\":\"Sample Title\",\"author\":\"John Doe\"}]}"
+            },
+            "POST": {
+                "description": "Create A New Post",
+                "query_strings": {},
+                "path_parameters": {},
+                "request_body": "{\"title\":\"Sample Title\",\"author\":\"John Doe\"}",
+                "response_body": "{\"id\":\"e52aff2f-773b-48aa-ae58-4e3d8ae81201\",\"ctime\":\"2023-06-17T17:58:47+0000\",\"title\":\"Sample Title\",\"author\":\"John Doe\"}"
+            }
+        },
+        "/posts/:post_id": {
+            "GET": {
+                "description": "Get A Post By Id",
+                "query_strings": {},
+                "path_parameters": {
+                    "post_id": {
+                        "description": "Post ID",
+                        "type": "string"
+                    }
+                },
+                "request_body": "",
+                "response_body": "{\"id\":\"e52aff2f-773b-48aa-ae58-4e3d8ae81201\",\"ctime\":\"2023-06-17T17:58:47+0000\",\"title\":\"Sample Title\",\"author\":\"John Doe\"}"
+            },
+            "DELETE": {
+                "description": "Delete A Post By Id",
+                "query_strings": {},
+                "path_parameters": {
+                    "post_id": {
+                        "description": "Post ID",
+                        "type": "string"
+                    }
+                },
+                "request_body": "",
+                "response_body": "{\"id\":\"e52aff2f-773b-48aa-ae58-4e3d8ae81201\",\"ctime\":\"2023-06-17T17:58:47+0000\",\"title\":\"Sample Title\",\"author\":\"John Doe\"}"
+            }
+        }
+    }
+}

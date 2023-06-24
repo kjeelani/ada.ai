@@ -13,8 +13,13 @@ class Post:
     title: str
     author: str
 
-    def __repr__(self):
-        return f"{{id: {self.id}, ctime: {self.ctime}, title: {self.title}, author: {self.author}}}"
+    def to_json(self):
+        return {
+            "id": {self.id}, 
+            "ctime": {self.ctime}, 
+            "title": {self.title}, 
+            "author": {self.author}
+        }
 
 
 test_posts = [
@@ -57,21 +62,23 @@ def g_posts(post_id: str=None):
                 "page": page,
                 "page_size": page_size
             },
-            "posts": [repr(item) for item in res]
+            "posts": [item.to_json() for item in res]
         })
     else:
         for post in test_posts:
             if post_id == post.id:
-                return repr(post)
+                return json.dumps(post.to_json())
 
 @app.post("/posts")
 def p_posts():
-    post = Post(
-        id=uuid.uuid1(),
-        ctime=datetime.now(),
-        title=request.args.get("title", ""),
-        author=request.args.get("author", "")
-    )
+    request_body = request.json
+
+    post = {
+        "id": f"{uuid.uuid1()}",
+        "ctime": f"{datetime.now()}",
+        "title": request_body["title"],
+        "author": request_body["author"]
+    }
 
     test_posts.append(post)
 
@@ -85,4 +92,4 @@ def test(post_id: str=None):
             res = test_posts.pop(idx)
             break
 
-    return repr(res)
+    return json.dumps(res.to_json())
